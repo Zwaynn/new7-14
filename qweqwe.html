@@ -17,5 +17,198 @@
         }
     </style>
     <h2 > Burat ni emerson maleet </h2>
+    <div id="content"></div>
+
 </body>
+<script>
+    //export {head, home, myName, remove, addButton};
+
+function head() {
+    const header = document.createElement('div');
+    header.className = 'head';
+    const nav = document.createElement('div');
+    nav.className = 'navbar';
+    const menuicon = document.createElement('img');
+    menuicon.id = 'menuicon';
+    menuicon.src = "../src/menu.png";
+    const homenav = document.createElement('div');
+    homenav.innerHTML = 'Home';
+    homenav.className = 'home';
+    const menunav = document.createElement('div');
+    menunav.innerHTML = 'Menu';
+    menunav.className = 'menu';
+    const contactnav = document.createElement('div');
+    contactnav.innerHTML = 'Contact';
+    contactnav.className = 'contact';
+    nav.append(homenav,menunav,contactnav);
+    header.append(menuicon, nav);
+    console.log(header);
+    console.log('header added');
+    return header;
+}
+
+$(document).ready(function(){
+    $("#menuicon, .contact, .menu, .home").click(() => {
+        $(".navbar").toggle();
+    })
+    });
+
+function home(){
+    const home = document.createElement('div');
+    home.className = 'home-cont';
+    const heading = document.createElement('div');
+    heading.className = 'home-head';
+    heading.innerHTML = 'Hapag Kainan';
+    const head_text_container = document.createElement('div');
+    head_text_container.className = 'home-head-cont'
+    const head_text = document.createElement('div');
+    head_text.className = 'plain-text';
+    head_text.innerHTML = 'Hapag Kainan offers a uniquely Filipino dining experience that is rooted on traditional family dining customs.';
+    head_text_container.append(head_text);
+    
+    const info_container = document.createElement('div');
+    info_container.className = 'info-cont';
+    const info_hours = document.createElement("div");
+    info_hours.className = 'big-text';
+    info_hours.innerHTML = 'Hours';
+    const hours = document.createElement('div');
+    hours.className = 'para';
+    hours.innerHTML = 'Monday - Friday: 09:00-21:00 <br \>Saturday - Sunday 09:00 - 11:00';
+    info_hours.append(hours);
+    const hours_text = document.createElement('div')
+    const info_loc = document.createElement('div');
+    info_loc.className = 'big-text';
+    info_loc.innerHTML = 'Location';
+    const location = document.createElement('div');
+    location.className = 'para';
+    location.innerHTML = '575 Kumain St Kanaba District Manila';
+    info_loc.append(location);
+    const info_contact = document.createElement('div');
+    info_contact.className = 'big-text';
+    info_contact.innerHTML = 'Contact Us';
+    const contact = document.createElement('div');
+    contact.className = 'para';
+    contact.innerHTML = 'tel: +639212842396 <br \>email: hapag.kainan@coolmails.com';
+    info_contact.append(contact);
+    info_container.append(info_hours, info_loc, info_contact);
+    
+    home.append(heading, head_text_container, info_container);
+    console.log('homepage printed');
+    return home;
+}
+
+
+function remove () {
+    document.getElementsByClassName('head')[0].nextSibling.remove();
+    console.log('content cleared');
+
+    };
+
+function addButton(){   
+    document.getElementsByClassName('menu')[0].addEventListener('click', function () {
+    if(document.getElementsByClassName('head')[0].nextSibling.className != 'menu-cont'){ 
+        remove();
+        console.log('homepage cleared, printing menu page');
+        const menu = document.createElement('div');
+        menu.className = 'menu-cont';
+        menu.innerHTML = 'Buffet Schedule'
+        const lunch = document.createElement('div');
+        lunch.innerHTML = 'Lunch'
+        lunch.className = 'lunch';
+        const lunchtime = document.createElement('div');
+        lunchtime.innerHTML = '10:00 - 15:00';
+        lunchtime.className = 'lunchtime';
+        const dinner = document.createElement('div');
+        dinner.innerHTML = 'Dinner';
+        dinner.className = 'dinner';
+        const dinnertime = document.createElement('div');
+        dinnertime.innerHTML = '17:00 - 23:00';
+        dinnertime.className = 'dinnertime';
+        lunch.append(lunchtime)
+        dinner.append(dinnertime);
+        const rates = document.createElement('div');
+        rates.className = 'rates';
+        rates.innerHTML = 'Rates:';
+        const days = document.createElement('div');
+        days.className = 'days';
+        days.innerHTML = 'Monday - Thursday:<br \>Friday - Sunday: ';
+        const cost = document.createElement('div');
+        cost.className = 'cost';
+        cost.innerHTML = '899.00 php <br \>1199.00 php';
+        const rate_cont = document.createElement('div');
+        rate_cont.className = 'rate-cont';
+        rate_cont.append(days, cost);
+
+        menu.append(lunch, dinner, rates, rate_cont);
+        console.log('lunch and dinner appended!');
+
+        document.getElementById('content').append(menu);    
+    }});
+    
+    document.getElementsByClassName('home')[0].addEventListener('click', function (){
+    if(document.getElementsByClassName('head')[0].nextSibling.className != 'home-cont'){   
+        remove();
+        const home = document.createElement('div');
+        home.className = 'home-cont';
+        const heading = document.createElement('div');
+        heading.className = 'home-head';
+        heading.innerHTML = 'Hapag Kainan';
+        const head_text_container = document.createElement('div');
+        head_text_container.className = 'home-head-cont'
+        const head_text = document.createElement('div');
+        head_text.className = 'plain-text';
+        head_text.innerHTML = 'Hapag Kainan offers a uniquely Filipino dining experience that is rooted on traditional family dining customs.';
+        head_text_container.append(head_text);
+        
+        const info_container = document.createElement('div');
+        info_container.className = 'info-cont';
+        const info_hours = document.createElement("div");
+        info_hours.className = 'big-text';
+        info_hours.innerHTML = 'Hours';
+        const hours = document.createElement('div');
+        hours.className = 'para';
+        hours.innerHTML = 'Monday - Thursday: 10:00-21:00 <br \>Friday - Sunday 10:00 - 11:00';
+        info_hours.append(hours);
+        const hours_text = document.createElement('div')
+        const info_loc = document.createElement('div');
+        info_loc.className = 'big-text';
+        info_loc.innerHTML = 'Location';
+        const location = document.createElement('div');
+        location.className = 'para';
+        location.innerHTML = '575 Kumain St Kanaba District Manila';
+        info_loc.append(location);
+        const info_contact = document.createElement('div');
+        info_contact.className = 'big-text';
+        info_contact.innerHTML = 'Contact Us';
+        const contact = document.createElement('div');
+        contact.className = 'para';
+        contact.innerHTML = 'tel: +639212842396 <br \>email: hapag.kainan@coolmails.com';
+        info_contact.append(contact);
+        info_container.append(info_hours, info_loc, info_contact);
+        
+        home.append(heading, head_text_container, info_container);
+        
+        document.getElementById('content').append(home);
+    }});
+    document.getElementsByClassName('contact')[0].addEventListener('click', function(){
+    if(document.getElementsByClassName('head')[0].nextSibling.className != 'contact-cont'){   
+        remove();
+        const info_contact = document.createElement('div');
+        info_contact.className = 'contact-cont';
+        info_contact.innerHTML = 'Contact Us';
+        const contact = document.createElement('div');
+        contact.className = 'deets';
+        contact.innerHTML = 'tel: +639212842396 <br \>email: hapag.kainan@coolmails.com';
+        info_contact.append(contact);
+
+        document.getElementById('content').append(info_contact);
+
+            }})
+}
+
+const myName = (name) => 'Hi! My name is ' + name;
+document.getElementById('content').append(head(), home());
+addButton();
+console.log('It\'s working!');
+</script>
 </html>
